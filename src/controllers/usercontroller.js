@@ -1,6 +1,7 @@
 const { createsubs } = require('../db/database.js')
 const crypto = require('crypto')
 const mailer = require('../email/nodemailer.js')
+
 module.exports= {
     async signup(req,res){
         const { name, email, password, created_on } = req.query
@@ -24,6 +25,13 @@ module.exports= {
             res.status(201).send({message:`Bem vindo, ${name}`})
         } catch (error) {
             res.status(404).send({message:`Algo errado não deu certo${error}`})
+        }
+    },
+    async getTest(req,res){
+        try {
+            res.status(200).send({message:`all good`})
+        } catch (error) {
+            res.status(404).send({message:'something wrong is not right!'})
         }
     }
 }

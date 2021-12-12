@@ -29,7 +29,7 @@ module.exports= {
     },
     async getTest(req,res){
         try {
-            res.status(200).send({message:`all good`})
+            res.json({message:`all good`})
         } catch (error) {
             res.status(404).send({message:'something wrong is not right!'})
         }

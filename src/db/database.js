@@ -9,11 +9,11 @@ const   Pool = require('pg')
 module.exports ={
     pool,
 
-    async createsubs(name,email,password,created_on){
+    async createsubs(name,email,phone,city){
        
        try {
         const newSubscriber = await pool.query(
-            "INSERT INTO subscribers (username,email,password,created_on) VALUES($1, $2, $3, $4) RETURNING *", [name, email, password, created_on]
+            "INSERT INTO subscribers (name, email, phone, city) VALUES($1, $2, $3, $4) RETURNING *", [name, email, phone, city]
         )
       return newSubscriber.rows
        } catch (error) {

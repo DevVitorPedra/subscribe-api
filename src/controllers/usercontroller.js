@@ -15,14 +15,14 @@ module.exports= {
         }
     },
     async createEmail(req,res){
-        const { name, email } = req.query
+        const { name, email, city, phone } = req.query
         try {
-            if(!name || !email) throw new Error('Campos inválidos')
+            if(!name || !email || !city || !phone) throw new Error('Campos inválidos')
             
-           const encryptedLink = crypto.createHash('sha256').update(name+" "+email).digest('hex')
+           const encryptedLink = crypto.createHash('sha256').update(name+" "+email+" "+phone+" "+city).digest('hex')
             const link = `tb-subscribe.netlify.app/sub/${encryptedLink}`
             const mail = await mailer(name,email, link)
-            res.status(201).send({message:`${mail}`})
+            res.status(201).send(mail)
         } catch (error) {
             res.status(404).send({message:`${error}`})
         }

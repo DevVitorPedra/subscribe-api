@@ -16,7 +16,7 @@ const SMTP_Config = require('./smtp')
         }
     })
 
-    async function mailer(name,email, link){
+    async function mailer(name, email, link){
     let mailSent = await transporter.sendMail({
         from:`Vitor Pedra <${process.env.EMAIL}>`,
         to:[`${email}`],

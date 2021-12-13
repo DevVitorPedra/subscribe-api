@@ -4,7 +4,8 @@ const   Pool = require('pg')
     password: process.env.DB_PASS,
     host: "ec2-3-228-78-248.compute-1.amazonaws.com",
     port: 5432,
-    database:"d7p7oc4tgg4t3p"
+    database:"d7p7oc4tgg4t3p",
+    DATABASE_URL:"postgres://cjiifhahgnzlkl:6ef989402c5f6209109d0c4d8fbfbd9c9f5733d2293d050bc721ee538d59499b@ec2-3-228-78-248.compute-1.amazonaws.com:5432/d7p7oc4tgg4t3p"
 })
 module.exports ={
     pool,

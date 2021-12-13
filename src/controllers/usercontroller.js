@@ -26,8 +26,8 @@ module.exports = {
         }
     },
     async confirmIdSub(req, res) {
-        const {   } = req.query
-
+        const { damn  } = req.query
+        console.log(damn)
         try {
             res.json({ message: `all good` })
         } catch (error) {

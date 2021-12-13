@@ -22,7 +22,7 @@ module.exports= {
            const encryptedLink = crypto.createHash('sha256').update(name+" "+email).digest('hex')
             const link = `tb-subscribe.netlify.app/sub/${encryptedLink}`
             const mail = await mailer(name,email, link)
-            res.status(201).send({message:`Bem vindo, ${name}`})
+            res.status(201).send({message:`${mail}`})
         } catch (error) {
             res.status(404).send({message:`${error}`})
         }

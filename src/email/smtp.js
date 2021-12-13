@@ -1,7 +1,7 @@
 module.exports = {
     host:"smtp.gmail.com",
     port:587,
-    user:"jogatinacabulosa@gmail.com",
-    pass:"JogatinaCabulosa92886423"
+    user:process.env.EMAIL,
+    pass:process.env.PASS
     
 }

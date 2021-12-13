@@ -18,7 +18,7 @@ const SMTP_Config = require('./smtp')
 
     async function mailer(name,email, link){
     let mailSent = await transporter.sendMail({
-        from:'Vitor Pedra <jogatinacabulosa@gmail.com>',
+        from:`Vitor Pedra <${process.env.EMAIL}>`,
         to:[`${email}`],
         subject:"Top Barber Subscription",
         text:"",

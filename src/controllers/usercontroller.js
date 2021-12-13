@@ -19,12 +19,12 @@ module.exports= {
         try {
             if(!name || !email) throw new Error('Campos inválidos')
             
-            const encryptedParams = crypto.createHash('sha256').update(name+email).digest('hex')
-            const link = `www.youtube.com`
+           const encryptedLink = crypto.createHash('sha256').update(name+email).digest('hex')
+            const link = `tb-subscribe.netlify.app/sub/${encryptedLink}`
             const mail = await mailer(name,email, link)
             res.status(201).send({message:`Bem vindo, ${name}`})
         } catch (error) {
-            res.status(404).send({message:`Algo errado não deu certo${error}`})
+            res.status(404).send({message:`${error}`})
         }
     },
     async getTest(req,res){

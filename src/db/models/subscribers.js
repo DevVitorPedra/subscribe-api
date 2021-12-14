@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 const sequelize = require("../sequelize");
 
-const Car = sequelize.define("subscribers", {
+const Subscribers = sequelize.define("subscribers", {
   name: DataTypes.STRING,
   email: DataTypes.STRING,
   phone: DataTypes.INTEGER,
@@ -11,9 +11,9 @@ const Car = sequelize.define("subscribers", {
 
 //create table if not exists...
 const init = async () => {
-  await subscribers.sync();
+  await Subscribers.sync();
 };
 
 init();
 
-module.exports = Car;
+module.exports = Subscribers;

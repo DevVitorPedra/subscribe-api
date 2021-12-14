@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 const sequelize = require("../sequelize");
 
-const Subscribers = sequelize.define("subscribers", {
+const Subscribers = sequelize.define("Subscribers", {
   name: DataTypes.STRING,
   email: DataTypes.STRING,
   phone: DataTypes.INTEGER,

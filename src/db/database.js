@@ -1,9 +1,9 @@
-
+const Subscribers = require('../db/models/subscribers')
 module.exports ={
    
    async create(req, res, next) {
       const { name, email, phone, city} = req.query
-      subscribers.create({
+      Subscribers.create({
         name,
         email,
         phone,

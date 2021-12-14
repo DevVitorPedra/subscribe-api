@@ -8,7 +8,7 @@ module.exports = {
 
         try {
             if (!name || !email || !phone || !city) throw new Error(`Preencha todos os campos`)
-            const newSubscriber = await createsubs(name, email, phone, city)
+            const newSubscriber = await create(req,res)
             res.status(201).json({ message: newSubscriber })
         } catch (error) {
             return res.status(404).send({ message: `Erro no controller: ${error}` })

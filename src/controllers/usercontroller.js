@@ -1,4 +1,4 @@
-const { createsubs } = require('../db/database.js')
+const { create } = require('../db/database.js')
 
 const mailer = require('../email/nodemailer.js')
 

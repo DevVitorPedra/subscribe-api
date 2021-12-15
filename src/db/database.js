@@ -4,13 +4,13 @@ module.exports ={
    async create(req, res, next) {
       const { name, email, phone, city} = req.query
       Subscribers.create({
-        name,
-        email,
-        phone,
-        city
+        name:name,
+        email:email,
+        phone:phone,
+        city:city
       })
         .then((result) => {
-          res.status(201).json(result); //return with ID -> 201 (CREATED)
+          res.status(201).send({message:result}); //return with ID -> 201 (CREATED)
         })
         .catch(next);
     },

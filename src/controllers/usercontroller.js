@@ -21,7 +21,7 @@ module.exports = {
            // const nameParam = "&name=" + name
            // const emailParam = "&email=" + email
            // const cityParam = "&city=" + city
-            const link = `https://topbarbersubscribers.herokuapp.com/sub?name=${name.trim()}&email=${email}&city=${city}`   //.concat(nameParam + emailParam + cityParam)
+            const link = `https://topbarbersubscribers.herokuapp.com/sub?name=${name}&email=${email}&city=${city}`   //.concat(nameParam + emailParam + cityParam)
             const mail = await mailer(name, email, link)
             res.status(201).send(mail)
         } catch (error) {

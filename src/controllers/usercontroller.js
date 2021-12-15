@@ -28,7 +28,7 @@ module.exports = {
     async confirmIdSub(req, res) {
         const { name,email, city  } = req.query
         try {
-            const subCreate = create(name,email,city)
+            const subCreate = await create(name,email,city)
             return res.json({message:{'Subscription':subCreate}})
         } catch (error) {
             res.status(404).send({ message: 'something wrong is not right!' })

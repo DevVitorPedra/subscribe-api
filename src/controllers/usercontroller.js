@@ -11,7 +11,7 @@ module.exports = {
             const newSubscriber = await create(name,email,phone,city)
             res.status(201).json({ message: newSubscriber })
         } catch (error) {
-            return res.status(404).send({ message: `Erro no controller: ${error}` })
+            return res.status(404).send({ message: `Erro no controller: ${error.message}` })
         }
     },
     async createEmail(req, res) {
@@ -22,7 +22,7 @@ module.exports = {
             const mail = await mailer(name, email, link)
             res.status(201).send(mail)
         } catch (error) {
-            res.status(404).send({ message: `${error}` })
+            res.status(404).send({ message: `${error.message}` })
         }
     },
     async confirmIdSub(req, res) {

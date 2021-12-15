@@ -5,7 +5,6 @@ const sequelize = require("../sequelize");
 const Subscribers = sequelize.define("Subscribers", {
   name: {type:DataTypes.STRING},
   email:{type:DataTypes.STRING,unique:true},
-  phone: {type:DataTypes.STRING},
   city:DataTypes.STRING,
 },
 {timestamps:false});

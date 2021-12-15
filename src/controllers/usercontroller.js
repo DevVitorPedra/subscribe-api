@@ -18,11 +18,14 @@ module.exports = {
         const { name, email, city } = req.query
         try {
             if (!name || !email || !city) throw new Error('Campos inválidos')
-            const link = "https://topbarbersubscribers.herokuapp.com/sub?name=" + name + "&email=" + email + "&city=" + city
+           // const nameParam = "&name=" + name
+           // const emailParam = "&email=" + email
+           // const cityParam = "&city=" + city
+            const link = `https://topbarbersubscribers.herokuapp.com/sub?name=${name.trim()}&email=${email}&city=${city}`   //.concat(nameParam + emailParam + cityParam)
             const mail = await mailer(name, email, link)
             res.status(201).send(mail)
         } catch (error) {
-            res.status(404).send({ message: `${error.message}` })
+            res.status(404).send({ message: `${error}` })
         }
     },
     async confirmIdSub(req, res) {

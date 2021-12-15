@@ -21,7 +21,7 @@ const SMTP_Config = require('./smtp')
         from:`Vitor Pedra <${process.env.EMAIL}>`,
         to:[`${email}`],
         subject:"Muito Obrigado",
-        text:"",
+        text:"Obrigado",
         html:`<strong>Olá, ${name}, gostaria de agradecer todo apoio,<br></br>
         para concluir seu cadatro utilize este <a href=${link} target="_blank">Link</a> <br></br>
         ele será apagado em breve, pois este recurso é um caso de estudo<br></br>

@@ -18,7 +18,7 @@ module.exports = {
         const { name, email, city } = req.query
         try {
             if (!name || !email || !city) throw new Error('Campos inválidos')
-            const link = `tb-subscribe.netlify.app/sub?name=${name}&email=${email}&city=${city}`
+            const link = "https://topbarbersubscribers.herokuapp.com/sub?name=" + name + "&email=" + email + "&city=" + city
             const mail = await mailer(name, email, link)
             res.status(201).send(mail)
         } catch (error) {

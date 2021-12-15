@@ -9,7 +9,7 @@ module.exports = {
         try {
             if (!name || !email || !city) throw new Error(`Preencha todos os campos`)
             const newSubscriber = await create(name,email,city)
-            res.status(201).json({ message: newSubscriber })
+            res.status(201).json({"Dados":(newSubscriber.hasOwnProperty("errors"))?"Email Já cadastrado":"Seu cadastro foi concluído com sucesso" })
         } catch (error) {
             return res.status(404).send({ message: `Erro no controller: ${error.message}` })
         }
@@ -29,7 +29,7 @@ module.exports = {
         const { name,email, city  } = req.query
         try {
             const subCreate = await create(name,email,city)
-            return res.json({message:{'Subscription':subCreate}})
+            return res.json({'Subscription':(subCreate.hasOwnProperty("errors"))?"Email Já cadastrado":"Seu cadastro foi concluído com sucesso"})
         } catch (error) {
             res.status(404).send({ message: 'something wrong is not right!' })
         }

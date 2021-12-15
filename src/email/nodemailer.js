@@ -20,12 +20,13 @@ const SMTP_Config = require('./smtp')
     let mailSent = await transporter.sendMail({
         from:`Vitor Pedra <${process.env.EMAIL}>`,
         to:[`${email}`],
-        subject:"Top Barber Subscription",
+        subject:"Muito Obrigado",
         text:"",
-        html:`<strong>Olá, ${name}, gostaria de dar as boas vindas ao Top Barber<br></br>
+        html:`<strong>Olá, ${name}, gostaria de agradecer todo apoio,<br></br>
         para concluir seu cadatro utilize este <a href=${link} target="_blank">Link</a> <br></br>
-         espero que tenha uma ótima experiencia<br></br>
+        ele será apagado em breve, pois este recurso é um caso de estudo<br></br>
          qualquer dúvida ou sugestão, pode nos enviar um email para este mesmo endereço<br></br>
+         (que é um email de jogos que fiz pro meu sobrinho hahahahaha)<br></br>
          Att,<br></br>
          Vitor dos Santos Pedra 
         `        

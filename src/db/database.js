@@ -16,6 +16,16 @@ module.exports ={
       
     } 
     },
+    async read(email){
+      try {
+          const result = await Subscribers.findAll({
+          attributes:['email']
+          })
+          return result
+      } catch (error) {
+          return error
+      }
+    }
     
 }
 

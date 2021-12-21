@@ -5,7 +5,6 @@ const database = require('../db/database.js')
 
 routes.post('/subscribers', usercontroller.signup)
 routes.post('/subs', usercontroller.createEmail)
-routes.get('/sub', usercontroller.confirmIdSub)
 routes.get('/',(req,res)=> res.json({message:"all good"}))
 routes.get('/email',usercontroller.verifyEmail)
 module.exports =  routes

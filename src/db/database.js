@@ -19,11 +19,13 @@ module.exports ={
     async read(email){
       try {
           const result = await Subscribers.findAll({
-          attributes:['email']
+            where :{
+              email:email
+            }
           })
           return result
       } catch (error) {
-          return error
+         return  error
       }
     }
     

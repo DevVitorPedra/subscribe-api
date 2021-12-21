@@ -1,6 +1,8 @@
-const { create } = require('../db/database.js')
+const { create, read } = require('../db/database.js')
 
 const mailer = require('../email/nodemailer.js')
+const { emailAlreadyExists } = require('../utils/functions.js')
+
 
 module.exports = {
     async signup(req, res) {
@@ -17,12 +19,15 @@ module.exports = {
     async createEmail(req, res) {
         const { name, email, city } = req.query
         try {
+            const emailexists = await emailAlreadyExists(email)
+            console.log(JSON.stringify(emailexists))
+            if(emailexists[0]) throw new Error("Email já cadastrado!")
             if (!name || !email || !city) throw new Error('Campos inválidos')
-            const link = `https://topbarbersubscribers.herokuapp.com/sub?name=${name}&email=${email}&city=${city}`   //.concat(nameParam + emailParam + cityParam)
+            const link = `https://topbarbersubscribers.herokuapp.com/sub?name=${name}&email=${email}&city=${city}`
             const mail = await mailer(name, email, link)
             res.status(201).send({message:"Cadastro feito com sucesso "})
         } catch (error) {
-            res.status(404).send({ message: `${error}` })
+            res.status(404).send({ message: `${error.message}` })
         }
     },
     async confirmIdSub(req, res) {
@@ -33,6 +38,16 @@ module.exports = {
         } catch (error) {
             res.status(404).send({ message: 'something wrong is not right!' })
         }
+    },
+    async verifyEmail(req, res) {
+        try {
+        const {email} = req.query
+        const result = await read(email)
+        res.status(200).send({message:result})
+        } catch (error) {
+                res.status(404).send({message:error})
+        }
+      
     }
   
 }
